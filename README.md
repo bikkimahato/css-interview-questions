@@ -99,6 +99,35 @@ Happy coding! If you find this repository helpful, please give it a star ⭐ and
 | 24  | [What are CSS combinators, and name different types?](#24-what-are-css-combinators-and-name-different-types)                                                                  |
 | 25  | [How do you create a custom checkbox using CSS?](#25-how-do-you-create-a-custom-checkbox-using-css)                                                                           |
 
+### Level : Hard
+| No. | Questions |
+| --- | --------- |
+| 1   | [Explain the CSS cascade and how it affects styling.](#1-explain-the-css-cascade-and-how-it-affects-styling) |
+| 2   | [How do you implement CSS custom properties (variables) and why would you use them?](#2-how-do-you-implement-css-custom-properties-variables-and-why-would-you-use-them) |
+| 3   | [Describe the process and benefits of using modular CSS.](#3-describe-the-process-and-benefits-of-using-modular-css) |
+| 4   | [How can you create complex animations using keyframes in CSS?](#4-how-can-you-create-complex-animations-using-keyframes-in-css) |
+| 5   | [How do you create a responsive grid system using CSS Grid Layout?](#5-how-do-you-create-a-responsive-grid-system-using-css-grid-layout) |
+| 6   | [Explain how to implement a CSS BEM (Block Element Modifier) methodology.](#6-explain-how-to-implement-a-css-bem-block-element-modifier-methodology) |
+| 7   | [How do you handle browser-specific prefixes in CSS?](#7-how-do-you-handle-browser-specific-prefixes-in-css) |
+| 8   | [What are CSS preprocessors, and how do they differ from CSS-in-JS libraries?](#8-what-are-css-preprocessors-and-how-do-they-differ-from-css-in-js-libraries) |
+| 9   | [How do you create a complex flexbox layout with nested flex items?](#9-how-do-you-create-a-complex-flexbox-layout-with-nested-flex-items) |
+| 10  | [Explain the box-sizing property and its value options.](#10-explain-the-box-sizing-property-and-its-value-options) |
+| 11  | [How do you create a custom CSS framework from scratch?](#11-how-do-you-create-a-custom-css-framework-from-scratch) |
+| 12  | [How do you debug CSS performance issues?](#12-how-do-you-debug-css-performance-issues) |
+| 13  | [What are the challenges and solutions for cross-browser compatibility in CSS?](#13-what-are-the-challenges-and-solutions-for-cross-browser-compatibility-in-css) |
+| 14  | [How do you implement a CSS-only modal?](#14-how-do-you-implement-a-css-only-modal) |
+| 15  | [Explain the concept of critical CSS and how to implement it.](#15-explain-the-concept-of-critical-css-and-how-to-implement-it) |
+| 16  | [How would you create a pure CSS accordion?](#16-how-would-you-create-a-pure-css-accordion) |
+| 17  | [Explain the difference between `grid-auto-flow` and explicit grid placement.](#17-explain-the-difference-between-grid-auto-flow-and-explicit-grid-placement) |
+| 18  | [How do you create a responsive navigation bar using CSS?](#18-how-do-you-create-a-responsive-navigation-bar-using-css) |
+| 19  | [Explain the concept of reflow and repaint in the context of CSS.](#19-explain-the-concept-of-reflow-and-repaint-in-the-context-of-css) |
+| 20  | [How do you implement CSS blend modes?](#20-how-do-you-implement-css-blend-modes) |
+| 21  | [How would you create a CSS-only image slider?](#21-how-would-you-create-a-css-only-image-slider) |
+| 22  | [What is the purpose of the CSS `will-change` property?](#22-what-is-the-purpose-of-the-css-will-change-property) |
+| 23  | [How do you create a CSS-based loading spinner?](#23-how-do-you-create-a-css-based-loading-spinner) |
+| 24  | [Explain the CSS contain property and its benefits.](#24-explain-the-css-contain-property-and-its-benefits) |
+| 25  | [How do you handle CSS specificity wars in a large project?](#25-how-do-you-handle-css-specificity-wars-in-a-large-project) |
+
 ### Easy CSS Interview Questions
 
 #### 1. **What is CSS?**
@@ -707,3 +736,540 @@ A custom checkbox can be created using the `:checked` pseudo-class and the `::be
 }
 ``` 
 **[⬆ Back to Top](#level--medium)**
+
+### Hard CSS Interview Questions and Answers
+
+#### 1. Explain the CSS cascade and how it affects styling.
+The CSS cascade determines which style rules apply to an element when multiple rules could apply. The cascade follows three main principles:
+
+1. **Importance**: Inline styles have the highest priority, followed by internal and external styles. The `!important` declaration overrides all other rules.
+2. **Specificity**: More specific selectors take precedence over less specific ones. Specificity is calculated based on the types of selectors used (ID, class, type).
+3. **Source Order**: When rules have the same importance and specificity, the one that appears later in the source code takes precedence.
+
+Understanding the cascade helps in avoiding conflicts and ensuring the correct styles are applied.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 2. How do you implement CSS custom properties (variables) and why would you use them?
+CSS custom properties (variables) are defined using the `--` prefix and accessed using the `var()` function.
+
+```css
+:root {
+  --main-color: #3498db;
+  --padding: 10px;
+}
+
+button {
+  background-color: var(--main-color);
+  padding: var(--padding);
+}
+```
+
+**Benefits**:
+- **Reusability**: Define once and reuse throughout the stylesheet.
+- **Maintainability**: Easier to manage and update styles.
+- **Theming**: Simplifies creating and switching themes.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 3. Describe the process and benefits of using modular CSS.
+**Modular CSS** involves breaking down styles into small, reusable, and maintainable components.
+
+**Process**:
+1. **Component-Based**: Each component gets its own CSS file.
+2. **Naming Conventions**: Use clear, consistent naming (e.g., BEM methodology).
+3. **Isolation**: Avoid global styles, ensuring components do not affect each other.
+
+**Benefits**:
+- **Maintainability**: Easier to manage and update.
+- **Reusability**: Components can be reused across different projects.
+- **Scalability**: Simplifies scaling projects with consistent styles.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 4. How can you create complex animations using keyframes in CSS?
+Use `@keyframes` to define the animation steps and `animation` property to apply it.
+
+```css
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.box {
+  animation: slide 3s infinite;
+}
+```
+
+**Complexity** can be added by defining multiple keyframes and properties.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 5. How do you create a responsive grid system using CSS Grid Layout?
+CSS Grid Layout provides a powerful system for creating responsive grids.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.item {
+  background-color: lightgray;
+}
+```
+
+The `auto-fill` and `minmax` functions ensure the columns adjust based on the container's width, making the grid responsive.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 6. Explain how to implement a CSS BEM (Block Element Modifier) methodology.
+BEM methodology enhances readability and maintainability by structuring CSS class names.
+
+**BEM Structure**:
+- **Block**: The main component (e.g., `.button`).
+- **Element**: A part of the block (e.g., `.button__icon`).
+- **Modifier**: A variation of the block or element (e.g., `.button--primary`).
+
+```css
+.button {
+  /* Block styles */
+}
+
+.button__icon {
+  /* Element styles */
+}
+
+.button--primary {
+  /* Modifier styles */
+}
+```
+**[⬆ Back to Top](#level--hard)**
+
+#### 7. How do you handle browser-specific prefixes in CSS?
+**Autoprefixer** is a popular tool that automatically adds vendor prefixes to CSS rules.
+
+```css
+/* Input CSS */
+.box {
+  display: flex;
+  transition: transform 0.3s;
+}
+
+/* Output CSS */
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+```
+
+Include Autoprefixer in your build process (e.g., with PostCSS) to ensure cross-browser compatibility.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 8. What are CSS preprocessors, and how do they differ from CSS-in-JS libraries?
+**CSS preprocessors** (e.g., Sass, LESS) use a syntax that extends CSS with variables, nesting, and functions, compiled into regular CSS.
+
+**CSS-in-JS libraries** (e.g., styled-components) allow writing CSS within JavaScript files, leveraging JavaScript's capabilities for dynamic styles.
+
+**Differences**:
+- **CSS preprocessors**: Focus on enhancing and extending CSS syntax.
+- **CSS-in-JS**: Integrate styles directly into JavaScript, enabling more dynamic and scoped styling.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 9. How do you create a complex flexbox layout with nested flex items?
+Flexbox is ideal for creating complex layouts with nested flex items.
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header, .footer {
+  flex: 0 1 auto;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  flex: 0 1 200px;
+}
+
+.content {
+  flex: 1;
+}
+```
+
+This setup creates a column layout with a header, footer, and a main area containing a sidebar and content section.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 10. Explain the box-sizing property and its value options.
+The `box-sizing` property defines how the width and height of an element are calculated.
+
+**Values**:
+- `content-box` (default): Width and height include only the content box.
+- `border-box`: Width and height include padding and border.
+
+```css
+.box {
+  box-sizing: border-box;
+  width: 250px;
+  padding: 10px;
+  border: 5px solid black;
+}
+```
+
+Using `border-box` simplifies layout calculations and avoids unexpected sizing issues.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 11. How do you create a custom CSS framework from scratch?
+Creating a custom CSS framework involves several steps:
+
+1. **Define Base Styles**: Normalize or reset default browser styles.
+2. **Grid System**: Create a responsive grid layout using Flexbox or CSS Grid.
+3. **Utilities**: Develop utility classes for common styles (e.g., margins, padding).
+4. **Components**: Build reusable components (e.g., buttons, forms, modals).
+5. **Theming**: Support theming with CSS custom properties (variables).
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 12. How do you debug CSS performance issues?
+**Steps**:
+1. **Use Browser DevTools**: Inspect elements and check applied styles.
+2. **Layout Rendering**: Identify and minimize reflows and repaints.
+3. **CSS Audit Tools**: Use tools like CSS Triggers to understand the impact of CSS properties.
+4. **Optimize Selectors**: Avoid overly complex and inefficient selectors.
+5. **Minimize CSS**: Remove unused styles and minimize the CSS file size.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 13. What are the challenges and solutions for cross-browser compatibility in CSS?
+**Challenges**:
+- **Vendor Prefixes**: Different browsers may require vendor-specific prefixes.
+- **CSS Features**: Not all browsers support newer CSS features.
+- **Rendering Differences**: Browsers may render styles differently.
+
+**Solutions**:
+- **Autoprefixer**: Automatically add vendor prefixes.
+- **Feature Detection**: Use Modernizr to detect and apply fallbacks for unsupported features.
+- **CSS Resets/Normalize**: Use CSS resets or normalize.css to ensure consistent rendering across browsers.
+- **Testing**: Regularly test on different browsers and devices.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 14. How do you implement a CSS-only modal?
+A CSS-only modal can be created using the `:target` pseudo-class.
+
+```html
+<a href="#modal">Open Modal</a>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <a href="#">Close</a>
+    <p>This is a modal.</p>
+  </div>
+</div>
+```
+
+```css
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal:target {
+  display: block;
+}
+
+.modal-content {
+  background: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+}
+```
+
+Clicking the link sets the target to the modal, making it visible.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 15. Explain the concept of critical CSS and how to implement it.
+**Critical CSS** involves extracting and inlining the CSS required for above-the-fold content to improve the initial load time.
+
+**Implementation**:
+1. **Identify Critical CSS**: Determine the CSS required for above-the-fold content.
+2. **Inline Critical CSS**: Embed the critical CSS directly in the HTML `<head>`.
+3. **Load Remaining CSS**: Load the rest of the CSS asynchronously.
+
+```html
+<style>
+  /* Critical CSS */
+  body { margin: 0; }
+  .header { background: #eee; }
+</style>
+<link rel="stylesheet" href="styles.css">
+```
+
+Tools like Critical or Penthouse can automate this process.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 16. How would you create a pure CSS accordion?
+A CSS-only accordion can be created using the `:checked` pseudo-class with hidden checkboxes.
+
+```html
+<div class="accordion">
+  <input type="checkbox" id="section1">
+  <label for="section1">Section 1</label>
+  <div class="content">Content for section 1.</div>
+
+  <input type="checkbox" id="section2">
+  <label for="section2">Section 2</label>
+  <div class="content">Content for section 2.</div>
+</div>
+```
+
+```css
+.accordion .content {
+  display: none;
+}
+
+.accordion input:checked + label + .content {
+  display: block;
+}
+```
+
+Clicking the label toggles the visibility of the corresponding content.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 17. Explain the difference between `grid-auto-flow` and explicit grid placement.
+- **`grid-auto-flow`**: Determines how auto-placed items are inserted into the grid.
+
+  ```css
+  .container {
+    display: grid;
+    grid-auto-flow: row;
+  }
+  ```
+
+- **Explicit Grid Placement**: Uses `grid-column` and `grid-row` properties to place items in specific areas.
+
+  ```css
+  .item {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+  }
+  ```
+
+`grid-auto-flow` provides automatic placement, while explicit grid placement offers precise control.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 18. How do you create a responsive navigation bar using CSS?
+Use media queries and Flexbox for a responsive navigation bar.
+
+```html
+<nav class="navbar">
+  <ul class="nav-list">
+    <li class="nav-item"><a href="#">Home</a></li>
+    <li class="nav-item"><a href="#">About</a></li>
+    <li class="nav-item"><a href="#">Services</a></li>
+    <li class="nav-item"><a href="#">Contact</a></li>
+  </ul>
+</nav>
+```
+
+```css
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item a {
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+  }
+}
+```
+
+This setup ensures the navigation bar is horizontal on larger screens and vertical on smaller screens.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 19. Explain the concept of reflow and repaint in the context of CSS.
+- **Reflow**: Occurs when the layout of the page changes, requiring the browser to recalculate the positions and sizes of elements. This is more computationally expensive.
+- **Repaint**: Happens when changes affect the appearance of elements (e.g., color change) but not their layout. This is less expensive than reflow.
+
+**Minimizing Reflows and Repaints**:
+- Avoid unnecessary DOM manipulations.
+- Batch updates to the DOM.
+- Use CSS properties that trigger only repaint instead of reflow when possible.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 20. How do you implement CSS blend modes?
+CSS blend modes are implemented using the `mix-blend-mode` or `background-blend-mode` properties.
+
+```css
+.blend {
+  background: url('image.jpg');
+  background-color: rgba(255, 0, 0, 0.5);
+  background-blend-mode: multiply;
+}
+
+.text-blend {
+  color: white;
+  mix-blend-mode: difference;
+}
+```
+
+Blend modes define how an element's content should blend with its background or with other content.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 21. How would you create a CSS-only image slider?
+Use the `:checked` pseudo-class with hidden radio buttons.
+
+```html
+<div class="slider">
+  <input type="radio" name="slide" id="slide1" checked>
+  <input type="radio" name="slide" id="slide2">
+  <input type="radio" name="slide" id="slide3">
+
+  <div class="slides">
+    <div class="slide" id="slide1-content">Slide 1</div>
+    <div class="slide" id="slide2-content">Slide 2</div>
+    <div class="slide" id="slide3-content">Slide 3</div>
+  </div>
+
+  <div class="navigation">
+    <label for="slide1">1</label>
+    <label for="slide2">2</label>
+    <label for="slide3">3</label>
+  </div>
+</div>
+```
+
+```css
+.slides .slide {
+  display: none;
+}
+
+#slide1:checked ~ .slides #slide1-content,
+#slide2:checked ~ .slides #slide2-content,
+#slide3:checked ~ .slides #slide3-content {
+  display: block;
+}
+```
+
+Selecting a radio button toggles the visibility of the corresponding slide.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 22. What is the purpose of the CSS `will-change` property?
+The `will-change` property provides a hint to the browser about which properties are likely to change, allowing for optimizations.
+
+```css
+.element {
+  will-change: transform, opacity;
+}
+```
+
+**Benefits**:
+- Improves performance by enabling the browser to make optimizations in advance.
+- Reduces the cost of subsequent changes to the specified properties.
+
+**Use with Caution**: Applying `will-change` can consume significant resources, so use it only when necessary.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 23. How do you create a CSS-based loading spinner?
+Use `@keyframes` and `animation` to create a rotating spinner.
+
+```html
+<div class="spinner"></div>
+```
+
+```css
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid lightgray;
+  border-top: 5px solid blue;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+```
+
+The spinner rotates continuously, providing a visual indication of loading.
+
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 24. Explain the CSS contain property and its benefits.
+The `contain` property limits the scope of an element's layout, style, and paint operations, improving performance.
+
+**Values**:
+- `layout`: Confines layout changes within the element.
+- `style`: Limits style recalculations to the element.
+- `paint`: Restricts paint operations to the element.
+
+```css
+.container {
+  contain: layout style paint;
+}
+```
+
+**Benefits**:
+- Optimizes rendering performance by isolating the element from its surroundings.
+- Reduces the impact of expensive operations on the rest of the page.
+
+**[⬆ Back to Top](#level--hard)**
+
+#### 25. How do you handle CSS specificity challenges in a large project?
+**Strategies**:
+- **Use BEM Methodology**: Ensures consistent and predictable specificity.
+- **Avoid Inline Styles**: Inline styles have the highest specificity and can cause conflicts.
+- **Use Utility Classes**: Provides low-specificity, reusable styles.
+- **Specificity Calculators**: Use tools to understand and manage specificity.
+- **Refactor and Simplify**: Regularly refactor CSS to reduce complexity and specificity conflicts.
+
+**[⬆ Back to Top](#level--hard)**
